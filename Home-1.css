@@ -1,0 +1,97 @@
+.home-page { padding: 0; }
+
+/* System header bar */
+.sys-bar {
+  display: flex; justify-content: space-between; align-items: center;
+  padding: 10px 16px;
+  border-bottom: 1px solid var(--border);
+  background: var(--surface);
+}
+.sys-bar-left { display: flex; align-items: center; gap: 8px; }
+.sys-dot { width: 6px; height: 6px; border-radius: 50%; background: var(--olive); animation: heartbeat 2.5s ease infinite; }
+.sys-label { font-size: 10px; font-weight: 500; color: var(--olive); letter-spacing: 1px; text-transform: uppercase; }
+.sys-addr { font-size: 10px; color: var(--text3); }
+
+/* LEAK METER */
+.leak-section {
+  padding: 28px 16px 24px;
+  border-bottom: 1px solid var(--border);
+  background: var(--bg);
+  animation: glow 4s ease-in-out infinite;
+  position: relative;
+}
+.leak-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(255,43,43,0.06) 0%, transparent 70%);
+  pointer-events: none;
+}
+.leak-eyebrow {
+  font-size: 9px; letter-spacing: 2.5px; text-transform: uppercase;
+  color: rgba(255,43,43,0.5); margin-bottom: 6px;
+}
+.leak-main { display: flex; align-items: flex-start; gap: 2px; line-height: 1; margin-bottom: 6px; }
+.leak-dollar { font-family: 'Syne', sans-serif; font-size: 22px; font-weight: 800; color: var(--red); padding-top: 10px; }
+.leak-number {
+  font-family: 'Syne', sans-serif; font-size: 88px; font-weight: 800;
+  color: var(--red); line-height: 0.9;
+  animation: countUp 0.6s ease forwards;
+  animation: heartbeat 3s ease-in-out infinite;
+}
+.leak-mo { font-size: 16px; color: rgba(255,43,43,0.4); align-self: flex-end; padding-bottom: 8px; padding-left: 4px; }
+
+.leak-reduced {
+  display: inline-flex; align-items: center; gap: 6px;
+  padding: 5px 10px; margin-top: 10px;
+  border: 1px solid rgba(138,171,110,0.2);
+  background: rgba(138,171,110,0.06);
+  border-radius: var(--radius);
+}
+.lr-before { font-size: 11px; color: var(--text3); text-decoration: line-through; }
+.lr-arrow  { font-size: 11px; color: var(--text3); }
+.lr-after  { font-size: 12px; color: var(--olive); font-weight: 600; }
+.lr-saved  { font-size: 11px; color: var(--olive); }
+
+.status-pills { display: flex; gap: 8px; margin-top: 14px; flex-wrap: wrap; }
+.pill {
+  display: inline-flex; align-items: center; gap: 5px;
+  padding: 3px 9px; border-radius: var(--radius);
+  font-size: 10px; letter-spacing: 0.3px; border: 1px solid;
+}
+.pill--firewall { border-color: rgba(168,196,196,0.2); color: var(--ice); background: var(--ice-dim); }
+.pill--frozen   { border-color: rgba(168,196,196,0.3); color: var(--ice); background: rgba(168,196,196,0.1); }
+
+/* Stats row — data dense horizontal */
+.stats-row {
+  display: grid; grid-template-columns: repeat(4,1fr);
+  border-bottom: 1px solid var(--border);
+}
+.stat {
+  padding: 12px 8px; text-align: center;
+  border-right: 1px solid var(--border);
+  display: flex; flex-direction: column; gap: 4px;
+}
+.stat:last-child { border-right: none; }
+.stat-val { font-family: 'Syne', sans-serif; font-size: 16px; font-weight: 700; color: var(--text); }
+.stat-val.red    { color: var(--red); }
+.stat-val.olive  { color: var(--olive); }
+.stat-val.amber  { color: var(--amber); }
+.stat-lbl { font-size: 8px; letter-spacing: 1px; text-transform: uppercase; color: var(--text3); }
+
+/* Freeze button */
+.freeze-wrap { padding: 14px 16px; border-bottom: 1px solid var(--border); }
+.freeze-btn {
+  width: 100%; padding: 14px;
+  background: var(--red-glow);
+  border: 1px solid rgba(255,43,43,0.3);
+  border-radius: var(--radius);
+  color: var(--red); font-size: 12px; font-weight: 600;
+  letter-spacing: 0.5px; cursor: pointer; transition: var(--t);
+  display: flex; align-items: center; justify-content: center; gap: 8px;
+}
+.freeze-btn:hover:not(:disabled) { background: rgba(255,43,43,0.18); }
+.freeze-btn:disabled { cursor: default; }
+.freeze-btn.frozen {
+  background: var(--ice-dim); border-color: rgba(168,196,196,0.25); color: var(--ice);
+}
+.freeze-sub { font-size: 10px; color: var(--ice); text-align: center; margin-top: 6px; letter-spacing: 0.5px; }
