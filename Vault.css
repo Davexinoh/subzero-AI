@@ -1,0 +1,53 @@
+.vault-card {
+  border-bottom: 1px solid var(--border);
+  padding: 28px 16px; text-align: center;
+  background: var(--bg);
+  position: relative; overflow: hidden;
+}
+.vault-card::before {
+  content: ''; position:absolute; inset:0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(138,171,110,0.07) 0%, transparent 70%);
+  pointer-events: none;
+}
+.vault-icon   { font-size:36px; }
+.vault-label  { font-size:9px; letter-spacing:2px; text-transform:uppercase; color:var(--text3); margin:10px 0 4px; }
+.vault-balance{ font-family:'Syne',sans-serif; font-size:60px; font-weight:800; color:var(--olive); line-height:1; }
+.vault-currency{font-size:11px; color:rgba(138,171,110,0.4); margin-bottom:16px; letter-spacing:1px; }
+.vault-stats  { display:flex; justify-content:center; align-items:center; gap:0; }
+.vault-stat   { padding:0 20px; text-align:center; }
+.vault-stat-num  { display:block; color:var(--olive); font-family:'Syne',sans-serif; font-size:18px; font-weight:700; }
+.vault-stat-label{ font-size:9px; color:var(--text3); letter-spacing:1px; text-transform:uppercase; }
+.vault-divider{ width:1px; height:24px; background:rgba(138,171,110,0.15); }
+
+.goal-card { background:var(--surface); border-bottom:1px solid var(--border); padding:14px 16px; }
+.goal-header{ display:flex; justify-content:space-between; margin-bottom:8px; }
+.goal-title { color:var(--text); font-size:12px; font-weight:500; letter-spacing:0.3px; }
+.goal-pct   { color:var(--olive); font-family:'Syne',sans-serif; font-weight:700; font-size:13px; }
+.goal-nums  { display:flex; align-items:baseline; margin-bottom:8px; }
+.goal-current{ color:var(--olive); font-size:22px; font-weight:700; font-family:'Syne',sans-serif; }
+.goal-of    { color:var(--text3); font-size:14px; }
+.progress-bar { height:2px; background:var(--border); margin-bottom:6px; }
+.progress-fill{ height:100%; background:var(--olive); transition:width 0.8s ease; }
+.goal-remaining{ color:var(--text3); font-size:10px; letter-spacing:0.5px; }
+
+.autopilot-card {
+  display:flex; justify-content:space-between; align-items:center;
+  padding:14px 16px; border-bottom:1px solid var(--border);
+  background:var(--surface);
+}
+.autopilot-title{ color:var(--text); font-size:13px; font-weight:500; margin-bottom:2px; }
+.autopilot-sub  { color:var(--text3); font-size:11px; }
+.autopilot-active{ color:var(--olive); font-size:10px; letter-spacing:0.5px; padding:6px 16px; border-bottom:1px solid var(--border); }
+.toggle { width:44px; height:24px; border-radius:12px; background:var(--border2); border:none; cursor:pointer; position:relative; transition:background 0.25s ease; flex-shrink:0; }
+.toggle--on { background:var(--olive); }
+.toggle-thumb { position:absolute; top:3px; left:3px; width:18px; height:18px; border-radius:50%; background:#fff; transition:transform 0.25s ease; }
+.toggle--on .toggle-thumb { transform:translateX(20px); }
+
+.history-item {
+  display:flex; justify-content:space-between; align-items:flex-start;
+  padding:13px 16px; border-bottom:1px solid var(--border);
+}
+.history-date  { color:var(--text3); font-size:9px; letter-spacing:0.5px; text-transform:uppercase; }
+.history-source{ color:var(--text2); font-size:12px; margin-top:3px; }
+.history-auto  { color:var(--ice); font-size:10px; margin-top:3px; letter-spacing:0.3px; }
+.history-amount{ color:var(--olive); font-family:'Syne',sans-serif; font-weight:700; font-size:14px; flex-shrink:0; }
