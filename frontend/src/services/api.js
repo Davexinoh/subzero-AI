@@ -3,7 +3,10 @@ import axios from 'axios';
 const BASE = process.env.REACT_APP_API_URL || 'http://localhost:3001/api';
 const api = axios.create({ baseURL: BASE });
 
-export const getWalletSummary = () => api.get('/wallet/summary').then(r => r.data);
+export const getWalletSummary = (walletAddress) => {
+  const params = walletAddress ? { wallet: walletAddress } : {};
+  return api.get('/wallet/summary', { params }).then(r => r.data);
+};
 export const emergencyFreeze = () => api.post('/wallet/emergency-freeze').then(r => r.data);
 export const detectSubscriptions = () => api.get('/subscriptions/detect').then(r => r.data);
 export const cancelSubscription = id => api.post('/subscriptions/cancel', { id }).then(r => r.data);
